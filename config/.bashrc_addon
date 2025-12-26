@@ -1,0 +1,4 @@
+# ROS 2 Jazzy Galaxy Book 4 Camera Aliases
+alias cam_setup='sudo sysctl -w net.core.rmem_max=2147483647 && sudo systemctl restart v4l2-relayd'
+alias cam_on='export GSCAM_CONFIG="v4l2src device=/dev/video0 ! videoconvert ! video/x-raw,format=RGB ! videoconvert" && ros2 run gscam gscam_node'
+alias cam_view='ros2 run rqt_image_view rqt_image_view'
