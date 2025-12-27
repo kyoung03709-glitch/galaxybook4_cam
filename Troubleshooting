@@ -1,0 +1,26 @@
+🛠 Troubleshooting
+1. Camera Not Detected
+
+    Symptom: /dev/video* devices are missing.
+
+    Solution: Manually load the driver modules or restart the relay service.
+    Bash
+
+    sudo modprobe v4l2loopback
+    sudo systemctl restart v4l2-relayd
+
+2. High Latency Issues
+
+    Symptom: Significant lag during real-time tracking.
+
+    Solution: Expand the network kernel receive buffer.
+    Bash
+
+    sudo sysctl -w net.core.rmem_max=2147483647
+
+3. Permission Errors
+
+    Solution: Ensure your user is part of the video and render groups.
+    Bash
+
+sudo usermod -aG video,render $USER
